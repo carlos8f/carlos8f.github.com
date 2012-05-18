@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <meta name="author" content="{{ site.author.name }}">
+  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}css/screen.css" media="screen">
+</head>
+
+<body>
+  <header id="banner">
+    <div id="banner-inner">
+      <p>{{ page.date | date_to_string }}</p>
+      <h2><a href="{{ site.url }}{{ site.baseurl}}">{{ site.title }}</a> / {{ page.categories | array_to_sentence_string }} / {{ page.title }}</h2>
+    </div>
+  </header>
+
+  <section id="content">
+    <div id="content-inner">
+      {{ content }}
+
+      {% if page.tags != empty %}
+      <p class="tags">tags: {{ page.tags | array_to_sentence_string }}</p>
+      {% endif %}
+    </div>
+  </section>
+
+  <footer role="contentinfo">
+    <p>copyright &copy; {{ site.time | date: '%Y' }} {{ site.author.name }}<br>
+      <span class="credit">powered by <a href="https://github.com/mojombo/jekyll">jekyll</a></span>
+    </p>
+  </footer>
+</body>
+</html>
